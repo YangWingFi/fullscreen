@@ -7,44 +7,5 @@
 
 function fullscreen() {
   // Code goes here
-// Check if the user is using an iPad and is using Safari browser
-var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-var isiPad = navigator.userAgent.match(/iPad/i) !== null;
-if (isiPad && isSafari) {
-
-  // Create a button that triggers the full screen mode
-  var fullScreenButton = document.createElement('button');
-  fullScreenButton.textContent = 'Full Screen';
-  
-  // Add an event listener to the button that triggers the full screen mode when clicked
-  fullScreenButton.addEventListener('click', function() {
-    var elem = document.documentElement;
-    if (elem.requestFullscreen) {
-      elem.requestFullscreen();
-    } else if (elem.webkitRequestFullscreen) { /* Safari */
-      elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) { /* IE11 */
-      elem.msRequestFullscreen();
     }
-  });
-  
-  // Add the button to the page
-  document.body.appendChild(fullScreenButton);
-
-  // Exit full screen mode when the user presses the "Escape" key or when the user clicks a button to exit full screen mode.
-  document.addEventListener('fullscreenchange', exitFullScreen);
-  document.addEventListener('webkitfullscreenchange', exitFullScreen);
-  document.addEventListener('msfullscreenchange', exitFullScreen);
-  
-  function exitFullScreen() {
-    if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
-      fullScreenButton.style.display = 'block';
-    } else {
-      fullScreenButton.style.display = 'none';
-    }
-  }
-}
-
-}
-
 </script>
